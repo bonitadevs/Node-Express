@@ -3,7 +3,7 @@
 const express = require('express');
 const campsiteRouter = express.Router();
 
-campsiteRouter.route('/')
+campsiteRouter.route('/')  //drop the app word and path from parameter to chain all the routes together and remove semicolon at the end (unless last method on chain)
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -21,6 +21,6 @@ campsiteRouter.route('/')
 })
 .delete((req, res) => {
     res.end('Deleting all campsites');
-});
+}); //methods are chained together instead of 5 separate routes
 
-module.exports = campsiteRouter;
+module.exports = campsiteRouter; //export campsiteRouter to use in the server.js
