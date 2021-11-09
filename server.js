@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const campsiteRouter = require('./routes/campsiteRouter'); //import campsiteRouter to use
+const promotionsRouter = require('./routes/promotionsRouter'); 
+const partnersRouter = require('./routes/partnerRouter'); 
 
 const hostname = 'localhost';
 const port = 3000;
@@ -9,7 +11,9 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.use('/campsites', campsiteRouter); //root path
+app.use('/campsites', campsiteRouter);
+app.use('/promotions', promotionsRouter);
+app.use('/partners', partnersRouter);
 
 app.use(express.static(__dirname + '/public'));
 
